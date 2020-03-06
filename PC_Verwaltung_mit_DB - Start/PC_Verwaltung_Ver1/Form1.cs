@@ -86,7 +86,7 @@ namespace PC_Verwaltung_Ver4
                 {
                     einPC.ID = allePC[aktuellerDatensatz].ID;
                     allePC[aktuellerDatensatz] = einPC;
-                    adapter.updtatePc(einPC);
+                    adapter.updatePc(einPC);
                 }
                 aktualisiereOberflaeche();
             }

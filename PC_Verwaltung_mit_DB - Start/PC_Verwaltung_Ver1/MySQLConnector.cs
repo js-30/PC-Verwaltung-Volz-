@@ -5,13 +5,13 @@ namespace PC_Verwaltung_Ver4
 {
     public class MySQLConnector
     {
-        // Private Felder
+        // Attribute
         private string dBHost = "localhost"; // kann auch IP-Adresse sein
         private string dBUser = "root";
         private string dBPasswort = "";
         private string dBName = "pcverwaltung";
 
-        // Gekapselte Properties
+        // Gekapselte Attribute
         public string DBHost { get => dBHost; set => dBHost = value; }
         public string DBUser { get => dBUser; set => dBUser = value; }
         public string DBPasswort { get => dBPasswort; set => dBPasswort = value; }

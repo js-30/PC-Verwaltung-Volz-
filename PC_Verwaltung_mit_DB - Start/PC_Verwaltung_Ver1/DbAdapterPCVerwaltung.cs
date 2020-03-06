@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 
 namespace PC_Verwaltung_Ver4
@@ -63,7 +64,7 @@ namespace PC_Verwaltung_Ver4
         public void insertPc(PC neuerPc)
         {
             //1. Sql Query und Command initialisieren
-            string query = $"INSERT INTO tblpcs(hdd, takt, ram)VALUES({ neuerPc.HDD },{ neuerPc.Prozessorgeschwindigkeit },{ neuerPc.RAM });";
+            string query = $"INSERT INTO tblpcs(hdd, takt, ram)VALUES({neuerPc.HDD.ToString(CultureInfo.InvariantCulture)},{neuerPc.Prozessorgeschwindigkeit.ToString(CultureInfo.InvariantCulture)},{neuerPc.RAM.ToString(CultureInfo.InvariantCulture)});";
             MySqlCommand sqlcommand = new MySqlCommand(query);
 
             //3. Connection mit Connectionstring initialisieren
@@ -108,12 +109,10 @@ namespace PC_Verwaltung_Ver4
         }
 
         //Update
-        public void updtatePc(PC neuerPc)
+        public void updatePc(PC neuerPc)
         {
             //1. Sql Query und Command initialisieren
-            string query = $"UPDATE `pcverwaltung`.`tblpcs` SET `hdd`={neuerPc.HDD}," +
-                           $"`takt`={neuerPc.Prozessorgeschwindigkeit},`ram`={neuerPc.RAM} " +
-                           $"WHERE `id`={neuerPc.ID}; ";
+            string query = $"UPDATE `pcverwaltung`.`tblpcs` SET `hdd`={neuerPc.HDD.ToString(CultureInfo.InvariantCulture)},`takt`={neuerPc.Prozessorgeschwindigkeit.ToString(CultureInfo.InvariantCulture)},`ram`={neuerPc.RAM.ToString(CultureInfo.InvariantCulture)} WHERE `id`={neuerPc.ID}; ";
             MySqlCommand sqlcommand = new MySqlCommand(query);
 
             //3. Connection mit Connectionstring initialisieren
